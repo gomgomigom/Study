@@ -22,3 +22,10 @@ async def root(request: Request):
     return templates.TemplateResponse(
         "./index.html", {"request": request, "title": "타이틀"}
     )
+
+
+@app.get("/search", response_class=HTMLResponse)
+async def search(request: Request, q: str):
+    return templates.TemplateResponse(
+        "./index.html", {"request": request, "title": "타이틀", "keyword": q}
+    )
