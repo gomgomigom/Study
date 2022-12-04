@@ -23,7 +23,7 @@ def create_app():
 
     # 미들웨어 정의
 
-    # 라우터 정의
+    # 라우터 정의.
     app.include_router(index.router)
     return app
 
