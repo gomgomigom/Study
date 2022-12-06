@@ -1,30 +1,39 @@
-class Smartphone:
-    def __init__(self, brand, details):
-        self._brand = brand
-        self._infomations = details
+class A:
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
 
-    def __str__(self):
-        return f"str : {self._brand} - {self._infomations}"
+    def say_name(self):
+        print(self._name)
 
-    def __repr__(self):
-        return f"repr : {self._brand} - {self._infomations}"
-
-    def get_infomation(self):
-        print(f"Current Id : {id(self)}")
-        print(
-            f'Smartphone Detail Info : {self._brand} {self._infomations.get("price")}'
-        )
-
-        Smartphone1 = Smartphone("Iphone", {"color": "White", "price": 10000})
-        Smartphone2 = Smartphone("Galaxy", {"color": "Black", "price": 8000})
-
-        Smartphone1.detail_info()
-
-        print(Smartphone1.__class__, Smartphone2.__class__)
-        # 부모는 같음
-        print(id(Smartphone1.__class__) == id(Smartphone2.__class__))
+    def say_age(self):
+        print(self._age)
 
 
-Smartphone1 = Smartphone("Iphone", {"color": "White", "infomations": 121})
-print(Smartphone1)
-print(Smartphone1.__dict__)
+class B(A):
+    def __init__(self, name, age, test):
+        super().__init__(name, age)
+        self._test = test
+
+    def say_test(self):
+        print(self._test)
+
+
+class C:
+    def __init__(self, name, age):
+        self.A = A(name, age)
+
+    def cal_add(self):
+        return self.A._age
+
+
+test1 = A("test1", 2)
+test1.say_name()
+
+test2 = B("2", 3, "TTTTTTEST")
+test2.say_name()
+test2.say_test()
+test2.say_age()
+
+test3 = C("na", 213)
+print(test3.cal_add())
