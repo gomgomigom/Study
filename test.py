@@ -33,7 +33,6 @@ test1.say_name()
 test2 = B("2", 3, "TTTTTTEST")
 test2.say_name()
 test2.say_test()
-test2.say_age()
 
 test3 = C("na", 213)
 print(test3.cal_add())
